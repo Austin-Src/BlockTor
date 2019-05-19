@@ -28,7 +28,7 @@ for ($t = 0; $t -lt $total/2; $t++) {
 # (Maximum number of IP's allowed per rule is 1000)
 for($i = 0; $i -lt $iterations; $i++) {
 	$skip = $i * 1000
-	$ips = gc nodes.txt | Select -First 1000 -Skip $skip
+	$ips = gc C:\PATH-TO-DOWNLOAD\nodes.txt | Select -First 1000 -Skip $skip
 	$name = "TorBlock$i"
 	$name2 = "TorBlocker$i"
 	New-NetFirewallRule -Direction Outbound -DisplayName $name -Name $name -RemoteAddress $ips -Action Block -ea "SilentlyContinue"
